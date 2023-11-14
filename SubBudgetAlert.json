@@ -72,6 +72,10 @@
 		"managerEmails": {
 			"defaultValue": "dsunkari@microsoft.com"
             "type": "Array",
+			"allowedValues": [
+                "dsunkari@microsoft.com",
+                "smitha.chenna@microsoft.com"
+            ],
             "metadata": {
                 "description": "The list of email addresses to send the budget notification to when the threshold is exceeded."
             }
