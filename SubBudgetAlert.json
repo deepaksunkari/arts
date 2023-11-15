@@ -104,8 +104,7 @@
                         "enabled": true,
                         "operator": "GreaterThan",
                         "threshold": "[parameters('firstThreshold')]",
-                        "contactEmails": "[parameters('contactEmails')]",
-                        "managerEmails": "[parameters('managerEmails')]"
+                        "contactEmails": "[parameters('contactEmails')]"
                     },
                     "NotificationForExceededBudget2": {
                         "enabled": true,
