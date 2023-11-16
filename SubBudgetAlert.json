@@ -36,7 +36,7 @@
             }
         },
         "endDate": {
-            "defaultValue": "2024-11-30",
+            "defaultValue": "2023-11-30",
             "type": "String",
             "metadata": {
                 "description": "The end date for the budget in YYYY-MM-DD format. If not provided, we default this to 10 years from the start date."
@@ -110,13 +110,15 @@
                         "enabled": true,
                         "operator": "GreaterThan",
                         "threshold": "[parameters('secondThreshold')]",
-                        "contactGroups": "[parameters('contactGroups')]"
+                        "contactGroups": "[parameters('contactGroups')]",
+                        "contactEmails": "[parameters('contactEmails')]"
                     },
                     "NotificationForExceededBudget3": {
                         "enabled": true,
                         "operator": "GreaterThan",
                         "threshold": "[parameters('thirdThreshold')]",
-                        "contactGroups": "[parameters('contactGroups')]"
+                        "contactGroups": "[parameters('contactGroups')]",
+                        "contactEmails": "[parameters('contactEmails')]"
                     }
                 }
             }
