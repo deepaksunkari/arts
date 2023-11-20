@@ -88,7 +88,7 @@
     },
     "resources": [
         {
-            "type": "Microsoft.Consumption/budgets",
+            "type": "Microsoft.Billing/budgets",
             "apiVersion": "2021-10-01",
             "name": "[parameters('budgetName')]",
             "properties": {
