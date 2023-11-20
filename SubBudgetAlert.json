@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "budgetName": {
-            "defaultValue": "testing",
+            "defaultValue": "ARTS-BudgetAlert",
             "type": "String",
             "metadata": {
                 "description": "Name of the Budget. It should be unique within a resource group."
