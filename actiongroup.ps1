@@ -9,7 +9,7 @@ $countryCode= "91"
 $contactNumber = Read-Host -Prompt "Input your contact number (Example: 987654321)"
 $actionGroupName = "SubAlert"
 $actionGroupShortName = "SubAlert"
-$emailId = "dsunkari@microsoft.com"
+$emailId = "smithachenna@microsoft.com"
 $emailalertname= "SubBudgetAlert"
 $smsalertname= "SubBudgetSMS"
 
