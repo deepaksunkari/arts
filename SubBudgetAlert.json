@@ -64,7 +64,6 @@
             }
         },
         "contactEmails": {
-            "defaultValue": ["dsunkari@microsoft.com"],
             "type": "Array",
             "metadata": {
                 "description": "The list of email addresses to send the budget notification to when the threshold is exceeded. Should be specified as an array of strings, for example, [\"user1@contoso.com\"]."
