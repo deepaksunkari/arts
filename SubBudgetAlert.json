@@ -43,21 +43,21 @@
             }
         },
         "firstThreshold": {
-            "defaultValue": 20,
+            "defaultValue": 50,
             "type": "Int",
             "metadata": {
                 "description": "Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0.01 and 1000."
             }
         },
         "secondThreshold": {
-            "defaultValue": 21,
+            "defaultValue": 75,
             "type": "Int",
             "metadata": {
                 "description": "Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0.01 and 1000."
             }
         },
         "thirdThreshold": {
-            "defaultValue": 22,
+            "defaultValue": 90,
             "type": "Int",
             "metadata": {
                 "description": "Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0.01 and 1000."
