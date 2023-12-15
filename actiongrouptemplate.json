@@ -1,69 +1,50 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2021-04-01",
-      "name": "actionRG",
-      "location": "global",
-      "properties": {}
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "actionGroupName": {
+            "type": "String",
+            "metadata": {
+                "description": "Unique name (within the Resource Group) for the Action group."
+            }
+        },
+        "actionGroupShortName": {
+            "type": "String",
+            "metadata": {
+                "description": "Short name (maximum 12 characters) for the Action group."
+            }
+        },
+        "emailReceivers": {
+            "type": "String",
+            "metadata": {
+                "description": "The list of email receivers that are part of this action group."
+            }
+        },
+        "smsReceivers": {
+            "type": "String",
+            "metadata": {
+                "description": "The list of SMS receivers that are part of this action group."
+            }
+        }
     },
-    {
-      "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2018-03-01",
-      "name": "groupname",
-      "location": "global",
-      "dependsOn": ["actionRG"],
-      "properties": {
-        "groupShortName": "gshortname",
-        "enabled": true,
-        "emailReceivers": [
-          {
-            "name": "Email",
-            "emailAddress": "[parameters('emailAddress')]"
-          }
-        ],
-        "smsReceivers": [
-          {
-            "name": "SMS",
-            "countryCode": "[parameters('countryCode')]",
-            "phoneNumber": "[parameters('phoneNumber')]"
-          }
-        ]
-      }
+    "resources": [
+        {
+            "type": "microsoft.insights/actionGroups",
+            "apiVersion": "2019-06-01",
+            "name": "[parameters('actionGroupName')]",
+            "location": "Global",
+            "properties": {
+                "groupShortName": "[parameters('actionGroupShortName')]",
+                "enabled": true,
+                "emailReceivers": "[parameters('emailReceivers')]",
+                "smsReceivers": "[parameters('smsReceivers')]"
+            }
+        }
+    ],
+    "outputs": {
+        "actionGroupId": {
+            "type": "String",
+            "value": "[resourceId('microsoft.insights/actionGroups', parameters('actionGroupName'))]"
+        }
     }
-  ],
-  "outputs": {
-    "actionGroupResourceId": {
-      "type": "string",
-      "value": "[resourceId('Microsoft.Insights/actionGroups', 'groupname')]"
-    }
-  },
-  "parameters": {
-    "emailAddress": {
-      "type": "string",
-      "metadata": {
-        "description": "Email address for alert notifications.",
-        "inputHint": "List",
-        "allowedValues": [
-          "user1@example.com",
-          "user2@example.com",
-          "user3@example.com"
-        ]
-      }
-    },
-    "countryCode": {
-      "type": "string",
-      "metadata": {
-        "description": "Country code for the mobile number."
-      }
-    },
-    "phoneNumber": {
-      "type": "string",
-      "metadata": {
-        "description": "Mobile phone number for alert notifications."
-      }
-    }
-  }
 }
