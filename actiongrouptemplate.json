@@ -4,7 +4,7 @@
     "parameters": {
         "ManagerEmail": {
             "allowedValues": [
-                "dsunkari@microsoft.com",
+                "slakshmipath@microsoft.com",
                 "user2@microsoft.com"
             ],
             "type": "String",
@@ -35,7 +35,7 @@
         {
             "type": "microsoft.insights/actionGroups",
             "apiVersion": "2023-01-01",
-            "name": "SubAlerttt",
+            "name": "SubAlert",
             "location": "Global",
             "properties": {
                 "groupShortName": "SubAlert",
