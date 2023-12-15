@@ -2,49 +2,68 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "actionGroupName": {
+        "ManagerEmail": {
+            "allowedValues": [
+                "dsunkari@microsoft.com",
+                "user2@microsoft.com"
+            ],
             "type": "String",
             "metadata": {
-                "description": "Unique name (within the Resource Group) for the Action group."
+                "description": "Email address for the user."
             }
         },
-        "actionGroupShortName": {
+        "EngineerEmail": {
             "type": "String",
             "metadata": {
-                "description": "Short name (maximum 12 characters) for the Action group."
+                "description": "Email address for the user."
             }
         },
-        "emailReceivers": {
-            "type": "String",
+        "EngineerCountryCode": {
+            "type": "Int",
             "metadata": {
-                "description": "The list of email receivers that are part of this action group."
+                "description": "Country code for the user's phone number."
             }
         },
-        "smsReceivers": {
-            "type": "String",
+        "EngineerPhoneNumber": {
+            "type": "Int",
             "metadata": {
-                "description": "The list of SMS receivers that are part of this action group."
+                "description": "Phone number for the user."
             }
         }
     },
     "resources": [
         {
             "type": "microsoft.insights/actionGroups",
-            "apiVersion": "2019-06-01",
-            "name": "[parameters('actionGroupName')]",
+            "apiVersion": "2023-01-01",
+            "name": "SubAlerttt",
             "location": "Global",
             "properties": {
-                "groupShortName": "[parameters('actionGroupShortName')]",
+                "groupShortName": "SubAlert",
                 "enabled": true,
-                "emailReceivers": "[parameters('emailReceivers')]",
-                "smsReceivers": "[parameters('smsReceivers')]"
+                "emailReceivers": [
+                    {
+                        "name": "SubBudgetAlert",
+                        "emailAddress": "[parameters('ManagerEmail')]",
+                        "useCommonAlertSchema": true
+                    }
+                ],
+                "smsReceivers": [
+                    {
+                        "name": "SubBudgetSMS",
+                        "countryCode": "[parameters('EngineerCountryCode')]",
+                        "phoneNumber": "[parameters('EngineerPhoneNumber')]"
+                    }
+                ],
+                "webhookReceivers": [],
+                "eventHubReceivers": [],
+                "itsmReceivers": [],
+                "azureAppPushReceivers": [],
+                "automationRunbookReceivers": [],
+                "voiceReceivers": [],
+                "logicAppReceivers": [],
+                "azureFunctionReceivers": [],
+                "armRoleReceivers": []
             }
         }
-    ],
-    "outputs": {
-        "actionGroupId": {
-            "type": "String",
-            "value": "[resourceId('microsoft.insights/actionGroups', parameters('actionGroupName'))]"
-        }
-    }
+    ]
 }
