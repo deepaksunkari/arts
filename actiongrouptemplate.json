@@ -4,7 +4,9 @@
     "parameters": {
         "ManagerEmail": {
             "allowedValues": [
-                "slakshmipath@microsoft.com",
+                "smithachenna@microsoft.com",
+                "bhedrick@microsoft.com",
+                "Jorge.Delgado@microsoft.com",
                 "user2@microsoft.com"
             ],
             "type": "String",
