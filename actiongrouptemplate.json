@@ -4,10 +4,19 @@
     "parameters": {
         "ManagerEmail": {
             "allowedValues": [
-                "smithachenna@microsoft.com",
                 "bhedrick@microsoft.com",
+                "Jamir.Correa@microsoft.com",
                 "Jorge.Delgado@microsoft.com",
-                "user2@microsoft.com"
+                "kthomas@microsoft.com",
+                "madalina.ciuchi@microsoft.com",
+                "Marco.Cartagena@microsoft.com",
+                "Nathan.Ost@microsoft.com",
+                "ramona.dorita@microsoft.com",
+                "riburn@microsoft.com",
+                "Saigayathri.M@microsoft.com",
+                "smithachenna@microsoft.com",
+                "Steven.Ledet@microsoft.com",
+                "vikasbagde@microsoft.com"
             ],
             "type": "String",
             "metadata": {
